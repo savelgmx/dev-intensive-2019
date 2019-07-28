@@ -4,6 +4,6 @@
     <color name="color_accent">#D81B60</color>
     <color name="color_primary">#2A1956</color>
     <color name="color_gray">#D81B60</color>
-    <color name="color_gray_dark">#D81B60</color>
-    <color name="color_gray_ligth">#D81B60</color>
+    <color name="color_gray_dark">#979597</color>
+    <color name="color_gray_light">#DAD2D2</color>
 </resources>
