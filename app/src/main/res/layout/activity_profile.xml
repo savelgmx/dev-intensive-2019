@@ -10,13 +10,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ru.skillbranch.devintensive.devintensive2019.ui.custom.AspectRatioImageView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/profile_bg"
             android:scaleType="centerCrop"
-            app:aspectRatio="1.78"
-            />
+            android:src="@drawable/profile_bg"
+            app:aspectRatio="1.78" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +39,9 @@
                 android:id="@+id/iv_avatar"
                 android:src="@drawable/avatar_default"
                 android:layout_centerHorizontal="true"/>
-            <ImageButton android:layout_width="@dimen/btn_round_size_40"
+            <ImageButton
+                android:id="@+id/btn_edit"
+                android:layout_width="@dimen/btn_round_size_40"
                 android:layout_height="@dimen/btn_round_size_40"
                 android:background="@drawable/btn_round_bg"
                 android:src="@drawable/ic_edit_black_24dp"
@@ -47,31 +49,32 @@
                 android:layout_marginTop="36dp"
                 android:layout_toRightOf="@id/iv_avatar"
                 />
+
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/tv_nick_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_avatar"
                 android:layout_centerHorizontal="true"
-                tools:text="John Doe"
-                android:textColor="@android:color/white"
-                android:fontFamily="sans-serif-condensed-medium"
                 android:layout_marginTop="@dimen/font_large_20"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textColor="@android:color/white"
                 android:visibility="visible"
-                />
+                tools:text="John Doe" />
+
             <TextView
                 android:id="@+id/tv_rank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_name"
+                android:layout_below="@id/tv_nick_name"
+                android:layout_marginTop="@dimen/spacing_normal_16"
                 android:layout_centerHorizontal="true"
-                tools:text="Junior Android Developer"
-                android:textColor="@android:color/white"
                 android:fontFamily="sans-serif-condensed-medium"
+                android:textColor="@android:color/white"
                 android:textSize="@dimen/font_large_20"
                 android:visibility="visible"
 
-                />
+                tools:text="Junior Android Developer" />
 
 
 
@@ -126,6 +129,7 @@
                 android:text="0"
                 android:fontFamily="sans-serif-condensed-medium"/>
             <TextView
+                android:id="@+id/tv_respect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
@@ -135,22 +139,25 @@
                 />
         </LinearLayout>
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="133dp"
         android:padding="@dimen/spacing_normal_16">
+
         <ImageView
             android:id="@+id/ic_avatar"
             android:layout_width="@dimen/btn_round_size_40"
             android:layout_height="@dimen/btn_round_size_40"
-            android:src="@drawable/ic_avatar"
-            />
+            android:src="@drawable/ic_avatar" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/wr_first_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/ic_avatar"
-            android:layout_marginLeft="@dimen/spacing_normal_16">
+            android:layout_marginLeft="@dimen/spacing_normal_16"
+            android:layout_toRightOf="@id/ic_avatar">
+
             <EditText
                 android:id="@+id/et_first_name"
                 android:layout_width="match_parent"
@@ -159,12 +166,14 @@
 
                 />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/ic_avatar"
+            android:layout_below="@+id/wr_first_name"
             android:layout_marginLeft="@dimen/spacing_normal_16"
-            android:layout_below="@+id/wr_first_name">
+            android:layout_toRightOf="@id/ic_avatar">
+
             <EditText
                 android:id="@+id/et_last_name"
                 android:layout_width="match_parent"
@@ -174,31 +183,55 @@
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
     </RelativeLayout>
+
+        <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/color_divider_dark"
+        android:layout_marginLeft="@dimen/space_maximum_72"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/spacing_normal_16">
+
+        android:padding="@dimen/spacing_tiny_4">
 
         <ImageView
             android:layout_width="@dimen/btn_round_size_40"
             android:layout_height="@dimen/btn_round_size_40"
-            android:src="@drawable/ic_about"/>
-        <EditText
-            android:id="@+id/et_about"
+            android:src="@drawable/ic_about" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wr_about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/spacing_normal_16"
+            app:counterEnabled="true"
+            app:counterMaxLength="128"
+            >
 
-            android:hint="О себе" />
+            <EditText
+                android:id="@+id/et_about"
+                style="@style/Platform.MaterialComponents"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+
+                android:hint="О себе"
+                android:inputType="textMultiLine" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="92dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="@dimen/spacing_tiny_4">
 
@@ -207,14 +240,30 @@
             android:layout_height="@dimen/btn_round_size_40"
             android:src="@drawable/ic_repo" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/spacing_normal_16"
+            android:layout_marginLeft="@dimen/spacing_normal_16"
+            >
+
         <EditText
             android:id="@+id/et_repository"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Репозиторий" />
-
-
+            android:hint="Репозиторий"
+            android:imeOptions="actionDone"
+            android:inputType="textUri"
+            android:visibility="visible" />
+    </com.google.android.material.textfield.TextInputLayout>
+        <ImageView
+            android:id="@+id/ic_eye"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="@dimen/spacing_normal_16"
+            android:src="@drawable/ic_eye_24dp"/>
     </LinearLayout>
 
 
